@@ -1,0 +1,22 @@
+.weatherCard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: #255bfb;
+    padding: 20px 25px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 6px 7px rgba(0, 0, 0, 0.2);
+}
+
+.mainInfo {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   justify-content: space-between;
+}
+
+.divIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
