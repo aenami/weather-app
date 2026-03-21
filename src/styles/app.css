@@ -18,3 +18,10 @@
     grid-template-rows: 1fr 1.2fr;
     gap: 25px;
 }
+
+@media screen and (width < 900px){
+    .informationSection{
+        grid-template-columns: 1fr;
+    }
+}
+
