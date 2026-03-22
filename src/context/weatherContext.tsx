@@ -28,7 +28,6 @@ type WeatherContext = {
     setTemperature: (temperature: number | undefined) => void;
     weatherDetails: WeatherDetails | undefined;
     setWeatherDetails: (details: WeatherDetails) => void;
-
 }
 
 export const weatherContext = createContext<WeatherContext | undefined>(undefined)

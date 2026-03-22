@@ -1,12 +1,15 @@
 import { Cloud, MapPin } from 'lucide-react'
 import '../styles/weathercard.css'
+import { useContextWeather } from '../context/useWeatherContext'
 
 function WeatherCard() {
+  const { location } = useContextWeather()
+
   return (
     <article className='weatherCard'>
 
       <div className="mainInfo">
-        <h3> <MapPin/> Madrid españa</h3>
+        <h3> <MapPin/> { location.country }, { location.city }</h3>
 
         <div>
           <h1>24°</h1>
