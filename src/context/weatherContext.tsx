@@ -10,24 +10,24 @@ type Location = {
     city: string;
 }
 
-type WeatherDetails = {
-    thermalSensation: number;
-    humidity: number;
-    wind: number;
-    visibility: number;
-    sunrise: string;
-    sunset: string;
-}
+type WeatherData = {
+  temperature: number;
+  humidity: number;
+  apparentTemperature: number;
+  windSpeed: number;
+  visibility: number;
+  sunrise: string;
+  sunset: string;
+  cloud_cover: number;
+};
 
 type WeatherContext = {
     coordinates: Coordinates;
     setCoordinates: (coordinates: Coordinates) => void;
     location: Location;
     setLocation: (location: Location) => void;
-    temperature: number | undefined;
-    setTemperature: (temperature: number | undefined) => void;
-    weatherDetails: WeatherDetails | undefined;
-    setWeatherDetails: (details: WeatherDetails) => void;
+    weatherDetails: WeatherData | undefined;
+    setWeatherDetails: (details: WeatherData) => void;
 }
 
 export const weatherContext = createContext<WeatherContext | undefined>(undefined)
