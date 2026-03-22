@@ -1,7 +1,7 @@
 .weatherCard {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    background-color: #255bfb;
+    background: linear-gradient(to bottom right, #255bfb, #feb47b);
     padding: 20px 25px;
     color: white;
     border-radius: 10px;

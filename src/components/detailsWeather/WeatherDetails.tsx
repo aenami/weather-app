@@ -1,5 +1,5 @@
 import '../../styles/detailsCard.css'
-import { Thermometer } from 'lucide-react'
+import { Thermometer, Droplets, Wind, Cloudy, Sunset, Sunrise} from 'lucide-react'
 
 function WeatherDetails() {
   return (
@@ -9,40 +9,45 @@ function WeatherDetails() {
       <div className='detailsBox'>
         <div className='detail'>
           <div className='detail-title'>
-            <Thermometer/>
+            <Thermometer color='#4991fe'/>
             <span>Sensacion terminca</span>
           </div>
-          <h2>22°</h2>
+          <h2>22°C</h2>
         </div>
         <div className='detail'>
            <div className='detail-title'>
-            <span>Sensacion terminca</span>
+            <Droplets color='#4991fe'/>
+            <span>Humidity</span>
           </div>
-          <h2>22°</h2>
+          <h2>80%</h2>
         </div>
         <div className='detail'>
            <div className='detail-title'>
-            <span>Sensacion terminca</span>
+            <Wind color='#4991fe'/>
+            <span>Wind</span>
           </div>
-          <h2>22°</h2>
+          <h2>4.3Km/h</h2>
         </div>
         <div className='detail'>
            <div className='detail-title'>
-            <span>Sensacion terminca</span>
+            <Cloudy color='#4991fe'/>
+            <span>Visibility</span>
           </div>
-          <h2>22°</h2>
+          <h2>4m</h2>
         </div>
         <div className='detail'>
            <div className='detail-title'>
-            <span>Sensacion terminca</span>
+            <Sunrise color='#4991fe'/>
+            <span>Sunrise</span>
           </div>
-          <h2>22°</h2>
+          <h2>5:10 am</h2>
         </div>
         <div className='detail'>
            <div className='detail-title'>
-            <span>Sensacion terminca</span>
+            <Sunset color='#4991fe'/>
+            <span>Sunset</span>
           </div>
-          <h2>22°</h2>
+          <h2>18:05 pm</h2>
         </div>
 
       </div>
