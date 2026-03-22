@@ -8,19 +8,21 @@ import '../src/styles/app.css'
 import { useContextWeather } from './context/useWeatherContext'
 
 function App() {
-  const { location } = useContextWeather()
+  const { location, coordinates, setTemperature, setWeatherDetails } = useContextWeather()
 
   // Hook que se encargara de hacer el llamado a la api de OpenMeteo y traer los datos que nos interesan
   useEffect( ()=>{  
     // 1. Construimos la url con los parametros que necesita para devolvernos la data que queremos
-    const url =`https://api.open-meteo.com/v1/forecast?latitude=${location.latitud}&longitude=${location.longitud}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m&daily=sunrise,sunset&hourly=visibility&timezone=auto`;
+    const url =`https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitud}&longitude=${coordinates.longitud}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m&daily=sunrise,sunset&hourly=visibility&timezone=auto`;
 
     // 2. Enviamos la peticion a la API y esperamos su respuesta
     fetch(url)
       .then(res => res.json()) // 3. Parseamos la respuesta hacia texto plano
       .then(data => {
-        // 4. Decidimos que hacer con la data
-        console.log(data)
+        // 4. Cambiamos todos los estados de nuestra app
+        const temperature = data.current.temperature_2m
+        setTemperature(temperature)
+
 
 
 

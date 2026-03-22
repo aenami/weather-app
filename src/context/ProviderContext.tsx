@@ -19,14 +19,16 @@ type weatherDetails = {
 // La prop children representara todo lo que envolveremos con este contexto
 export function WeatherProvider({ children }: ChildrenGameProvider) {
     // Estados que compartiremos en el contexto global
-    const [location, setLocation] = useState({ latitud:2.43823, longitud: -76.61316 }) 
+    const [location, setLocation] = useState({country: 'Colombia', city: 'Popayan'}) 
+    const [coordinates, setCoordinates] = useState({ latitud:2.43823, longitud: -76.61316 })
     const [temperature, setTemperature] = useState<number | undefined>(undefined)
     const [weatherDetails, setWeatherDetails] = useState<weatherDetails | undefined>(undefined)
     
     
+    
     //5. Definimos el provider
     return (
-        <weatherContext.Provider value={ {location, setLocation, temperature, setTemperature, weatherDetails, setWeatherDetails} }>
+        <weatherContext.Provider value={ {location, setLocation, temperature, setTemperature, weatherDetails, setWeatherDetails, coordinates, setCoordinates} }>
             {children}
         </weatherContext.Provider>
     )

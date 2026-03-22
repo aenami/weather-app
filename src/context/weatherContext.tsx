@@ -1,8 +1,13 @@
 import { createContext } from "react";
 
-type Location = {
+type Coordinates = {
     latitud: number;
     longitud: number;
+}
+
+type Location = {
+    country: string;
+    city: string;
 }
 
 type WeatherDetails = {
@@ -15,6 +20,8 @@ type WeatherDetails = {
 }
 
 type WeatherContext = {
+    coordinates: Coordinates;
+    setCoordinates: (coordinates: Coordinates) => void;
     location: Location;
     setLocation: (location: Location) => void;
     temperature: number | undefined;
