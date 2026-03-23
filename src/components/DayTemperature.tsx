@@ -1,13 +1,13 @@
 import '../styles/dayTemperature.css'
+import TemperatureGraphic from './TemperatureGraphic'
 
 function DayTemperature() {
   return (
     <div className='temperatureCard'>
       <h2>Temparatura a lo largo del dia</h2>
-      <div className='graficoTemperatura'>
-        <h1>Grafico de la temperatura a lo largo del dia</h1>
-        
-      </div>
+      
+      <TemperatureGraphic/>
+
     </div>
   )
 }

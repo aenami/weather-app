@@ -10,7 +10,7 @@ type Location = {
     city: string;
 }
 
-type WeatherData = {
+export type WeatherData = {
   temperature: number;
   humidity: number;
   apparentTemperature: number;
@@ -19,6 +19,7 @@ type WeatherData = {
   sunrise: string;
   sunset: string;
   cloud_cover: number;
+  graphicData: { hour: string, temp: number }[]
 };
 
 type WeatherContext = {

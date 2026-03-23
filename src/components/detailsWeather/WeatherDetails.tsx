@@ -30,14 +30,14 @@ function WeatherDetails() {
             <Wind color='#4991fe'/>
             <span>Wind</span>
           </div>
-          <h2>{ weatherDetails?.windSpeed }Km/h</h2>
+          <h2>{ weatherDetails?.windSpeed } Km/h</h2>
         </div>
         <div className='detail'>
            <div className='detail-title'>
             <Cloudy color='#4991fe'/>
             <span>Visibility</span>
           </div>
-          <h2>{ weatherDetails?.visibility }m</h2>
+          <h2>{ weatherDetails?.visibility } m</h2>
         </div>
         <div className='detail'>
            <div className='detail-title'>

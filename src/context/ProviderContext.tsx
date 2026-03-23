@@ -1,21 +1,11 @@
 import { useState } from 'react'
 import { weatherContext } from "./weatherContext";
+import { type WeatherData } from './weatherContext';
 
 // Tipamos el valor del children que recibira nuestro provider
 type ChildrenGameProvider = {
     children: React.ReactNode;
 }
-
-type WeatherData = {
-  temperature: number;
-  humidity: number;
-  apparentTemperature: number;
-  windSpeed: number;
-  visibility: number;
-  sunrise: string;
-  sunset: string;
-  cloud_cover: number;
-};
 
 // 2. Creamos el componente provider
 // La prop children representara todo lo que envolveremos con este contexto
