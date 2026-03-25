@@ -1,8 +1,12 @@
 import '../../styles/navbar.css'
-import { Sun } from 'lucide-react';
-import ChangeLocation from './ChangeLocation';
+import { Sun } from 'lucide-react'
 
-function Nav() {
+type navBtn = {
+  setOnClose: () => void;
+}
+
+function Nav({ setOnClose }:navBtn) {
+
   return (
     <nav className='nav'>
         <div className='nav-title'>
@@ -10,7 +14,10 @@ function Nav() {
           <h2>WeatherApp</h2>
         </div>
         
-        <ChangeLocation/>
+        <button className='btn' onClick={setOnClose}>
+          Cambiar ubicacion
+        </button>
+
     </nav>
   )
 }

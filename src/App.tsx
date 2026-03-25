@@ -1,14 +1,19 @@
 import './App.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Nav from './components/nav/Nav'
 import WeatherCard from './components/WeatherCard'
 import WeatherDetails from './components/detailsWeather/WeatherDetails'
 import DayTemperature from './components/DayTemperature'
 import '../src/styles/app.css'
 import { useContextWeather } from './context/useWeatherContext'
+import Modal from './components/Modal'
 import { getWeather } from './services/weatherService'
 
 function App() {
+  // Estado para trabajar la visualizacion del modal
+  const [onClose, setOnClose] = useState(false)
+
+  // Consumiendo el contexto global
   const { coordinates, setWeatherDetails } = useContextWeather()
 
   async function requestData() {
@@ -28,14 +33,13 @@ function App() {
   // Hook que se encargara de hacer el llamado a la api de OpenMeteo y traer los datos que nos interesan
   useEffect( ()=>{  
     requestData()
-    
 
   }, [])
 
   return (
     <>
       <main className='main'>
-        <Nav/>
+        <Nav setOnClose={ () => setOnClose(true) }/>
 
         <div className='informationSection'>
 
@@ -50,6 +54,9 @@ function App() {
           </div>
 
         </div>
+
+        { /* ---- Condicion para mostrar el label ----- */ }
+        {onClose && <Modal onclose={() => setOnClose(false)} /> }
        
       </main>
     </>
