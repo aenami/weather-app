@@ -7,18 +7,25 @@ import { useContextWeather } from '../context/useWeatherContext'
 
 
 type Location = {
-  location: LocationType
+  location: LocationType;
+  onClick: () => void;
 }
 
 
-function ItemLocation( { location }: Location) {
+function ItemLocation( { location, onClick }: Location) {
   // Consumimos el contexto global
-  const { coordinates, setWeatherDetails } =  useContextWeather()
+  const { setCoordinates, setWeatherDetails, setLocation } =  useContextWeather()
   // Estado que manejara la temperatura del card
   const [temperature, setTemperature] = useState<number | null>(null)
 
-  const handlerWeather = () => {
-    
+  // Funcion que se encargara de cambiar todos los datos del dashboard principal
+  const handlerWeather = async () => {  
+    setCoordinates({ latitud: location.latitud, longitud: location.longitud })
+    setLocation( { country: location.pais, city:location.ciudad  } )
+    const data = await getWeather( { latitud: location.latitud, longitud: location.longitud } )
+    setWeatherDetails(data)
+    // Evento para cerrar el modal
+    onClick()
   }
 
   // Hook que se encargara de setear la temperatura cuando el componente sea montado por primera vez

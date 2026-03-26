@@ -53,7 +53,7 @@ function Modal({onclose}:propsModal) {
                     </div>
                     
                     {Locations.map( (location) => (
-                        <ItemLocation key={location.ciudad} location={location}/>
+                        <ItemLocation key={location.ciudad} location={location} onClick={onclose}/>
                     ) ) }
                     
                 </div>

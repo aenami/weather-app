@@ -5,6 +5,7 @@ import { useContextWeather } from '../context/useWeatherContext'
 function WeatherCard() {
   const { location, weatherDetails } = useContextWeather()
   const cloud_cover = weatherDetails?.cloud_cover
+  
   return (
     <article className='weatherCard'>
 

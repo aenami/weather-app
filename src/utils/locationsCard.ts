@@ -6,7 +6,7 @@ export type LocationType = {
 }
 
 export const Locations: LocationType[] = [
-  { ciudad: "Madrid",   pais: "España",      latitud: 40.41,  longitud: -3.70  },
+  { ciudad: "Paris",   pais: "Francia",      latitud: 48.85,  longitud: 2.3  },
   { ciudad: "Bogotá",   pais: "Colombia",    latitud: 4.71,   longitud: -74.07 },
   { ciudad: "New York", pais: "Estados Unidos", latitud: 40.71, longitud: -74.00 },
 ];
