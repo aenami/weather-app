@@ -1,73 +1,8 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## WeatherApp — Aplicación del clima en tiempo real
+WeatherApp es una aplicación web desarrollada en React con TypeScript que consume la API de Open-Meteo para mostrar información meteorológica en tiempo real. El proyecto nació como un ejercicio práctico para consolidar conocimientos en el desarrollo frontend moderno.
+# Tecnologías utilizadas
+El proyecto fue construido con React como librería principal de UI, aprovechando hooks como useEffect, useState para gestionar el ciclo de vida de los componentes y las peticiones asíncronas. TypeScript fue incorporado para garantizar un tipado estricto a lo largo de toda la aplicación. La visualización de datos se implementó con Recharts, mostrando la evolución de la temperatura a lo largo del día mediante gráficos de línea. Los estilos fueron trabajados con CSS puro, aplicando conceptos como position: fixed, backdrop-filter y animaciones con @keyframes. La comunicación con la API se realizó mediante la Fetch API nativa del navegador, incluyendo la transformación y normalización de los datos recibidos para adaptarlos al formato que requiere cada componente.
+# Lo que aprendí
+Este proyecto me permitió profundizar en el manejo de efectos asíncronos en React, entendiendo cuándo y cómo limpiarlos correctamente. Trabajé con patrones reales de arquitectura de componentes, aprendiendo a distribuir responsabilidades entre componentes padre e hijo y a elevar el estado cuando es necesario. También reforcé conceptos clave como el event bubbling, el uso de portales para modales y la importancia de tipar correctamente las props y los datos que llegan de una API externa.
+Funcionalidades destacadas
+La aplicación inicia con datos climáticos cargados por defecto para una ubicación predefinida, implementando un modal con animación de entrada y salida para la búsqueda y cambio de ubicación, un gráfico interactivo de temperatura horaria y cards individuales que consultan la temperatura en tiempo real para distintas localizaciones alrededor del mundo.
