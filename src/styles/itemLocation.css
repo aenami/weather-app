@@ -5,6 +5,11 @@
     background-color: #f9fafb;
     padding: 15px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.location-card:hover {
+    background-color: #d2d4d4ab;
 }
 
 .location-title{

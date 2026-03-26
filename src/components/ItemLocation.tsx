@@ -1,19 +1,52 @@
 import { MapPin } from 'lucide-react'
+import { useEffect, useState} from 'react'
 import '../styles/itemLocation.css'
+import { getWeather } from '../services/weatherService'
+import type { LocationType } from '../utils/locationsCard'
+import { useContextWeather } from '../context/useWeatherContext'
 
 
-function ItemLocation() {
+type Location = {
+  location: LocationType
+}
+
+
+function ItemLocation( { location }: Location) {
+  // Consumimos el contexto global
+  const { coordinates, setWeatherDetails } =  useContextWeather()
+  // Estado que manejara la temperatura del card
+  const [temperature, setTemperature] = useState<number | null>(null)
+
+  const handlerWeather = () => {
+    
+  }
+
+  // Hook que se encargara de setear la temperatura cuando el componente sea montado por primera vez
+  useEffect( ()=> {
+    // Funcion que hara el fetch respectivo
+    const getTemperature = async () => {
+      // 1. Hacer la consulta API
+      const data = await getWeather( { latitud: location.latitud, longitud: location.longitud } )
+      // 2. Guardar el valor de la temperatura en un estado
+      setTemperature(data.temperature)
+
+    }
+
+    getTemperature()
+  },[location.latitud, location.longitud]) // POnemos las dependencias externas que utiliza el useEffect
+
+
   return (
-      <div className='location-card'>
+      <div className='location-card' onClick={handlerWeather}>
           <div className='location-title'>
             <MapPin color='#3585ff'/>
             <div className='location-title-text'>
-                <h4>Madrid</h4>
-                <span>España</span>
+                <h4> { location.pais } </h4>
+                <span> {location.ciudad } </span>
             </div>
           </div>
 
-          <h3>18°</h3>
+          <h3> { temperature } °C</h3>
       </div>
   )
 }

@@ -2,6 +2,7 @@ import '../styles/modal.css'
 import { useEffect } from 'react'
 import { TrendingUp, Search} from 'lucide-react'
 import ItemLocation from './ItemLocation'
+import { Locations } from '../utils/locationsCard'
 
 type propsModal = {
     onclose: () => void;
@@ -51,7 +52,10 @@ function Modal({onclose}:propsModal) {
                         <span>Ubicaciones populares</span>
                     </div>
                     
-                    <ItemLocation/>
+                    {Locations.map( (location) => (
+                        <ItemLocation key={location.ciudad} location={location}/>
+                    ) ) }
+                    
                 </div>
                 
             </section>
