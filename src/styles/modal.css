@@ -1,14 +1,14 @@
 .modal-backdrop{
-    position: fixed;
-    inset: 0;                      /* top/right/bottom/left: 0 */
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: 100;
+  position: fixed;
+  inset: 0;                      /* top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
 
-    /* Esto centra la tarjeta dentro del fondo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* Esto centra la tarjeta dentro del fondo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal{

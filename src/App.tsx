@@ -16,25 +16,25 @@ function App() {
   // Consumiendo el contexto global
   const { coordinates, setWeatherDetails } = useContextWeather()
 
-  async function requestData() {
-    try {
-      // 2. Enviamos la peticion a la API y esperamos su respuesta
-      const data = await getWeather(coordinates)
-
-      // 3. Utilizamos la data para cambiar los estados
-      setWeatherDetails(data)
-
-    } catch (error) {
-        // Cambiamos el estado que maneja los errores
-        console.log('Ocurrio un error al realizar la peticion a la api: ' +  error)
-      }
-  }
-
   // Hook que se encargara de hacer el llamado a la api de OpenMeteo y traer los datos que nos interesan
   useEffect( ()=>{  
+    async function requestData() {
+      try {
+        // 2. Enviamos la peticion a la API y esperamos su respuesta
+        const data = await getWeather(coordinates)
+
+        // 3. Utilizamos la data para cambiar los estados
+        setWeatherDetails(data)
+
+      } catch (error) {
+          // Cambiamos el estado que maneja los errores
+          console.log('Ocurrio un error al realizar la peticion a la api: ' +  error)
+        }
+    }
+
     requestData()
 
-  }, [])
+  }, [coordinates, setWeatherDetails])
 
   return (
     <>
